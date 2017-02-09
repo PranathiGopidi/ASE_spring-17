@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Login</title>
+    <style>
+        form{
+            align:center;
+        }
+        ul {
+            list-style-type: none;
+            margin:0;
+            padding: 0;
+            overflow: hidden;
+        }
+        li {
+            float: left;
+        }
+        a:link, a:visited {
+            display: block;
+            width: 650px;
+            font-weight: bold;
+            color: #FFFFFF;
+            background-color: #98bf21;
+            text-align: center;
+            padding: 4px;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        a:hover, a:active {
+            background-color: #7A991A;
+        }
+        a.button {
+            -webkit-appearance: button;
+            -moz-appearance: button;
+            appearance: button;
+            width:auto;
+            text-decoration: none;
+            color: initial;
+        }
+        body{
+            align-content:center;
+        }
+    </style>
+</head>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+    function addtext()
+    {
+        fname = document.getElementById('uname').value;
+        if (typeof(Storage) !== "undefined") {
+            // Store
+            localStorage.setItem("lastname", fname);
+            window.location.href="Home.html";
+        }
+    }
+</script>
+<body background="bgimg.jpg">
+<strong><h1 style="text-align: center">Login</h1></strong>
+<br/>
+<br/>
+
+<div align="center">
+    Username: <input type=text id="uname"/><br/><br/><br/>
+    Password: <input type=password name="pwd"/><br/><br/>
+    <input type="Submit" value="Login" onclick="location.href='Home.html'"/><br/>
+    <br> <a href="#">forgot my password..<br/></a>
+    <!-- <a href="C:/Desktop/ASE/New Folder/ASE/WebContent/Home.html"></a> -->
+    <!--<a href="C:/Users/DELL/Desktop/Register.html" class="button">Register</a>-->
+    <br/><input type=button value="Register" onClick="location.href='Register.html'"/>
+    <div id="result"></div>
+    <br/>
+</div>
+<div align="center">
+    <!-- <input type="button" value="Gmail" onClick="location.href='http://localhost:8080/ASE/gmail.html'"/> -->
+    <input type="button"  value="Gmail Login" onclick="login()"/>
+    <!-- <input type="button"  value="Logout" onclick="logout()" /> -->
+</div>
+</body>
+</html>
+<script type="text/javascript">
+
+       function logout()
+    {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+            console.log('User signed out.');
+        });
+    }
+    function login()
+    {
+        var myParams = {
+            'clientid' : '714486780014-bivm9mvi7ivfstjh8kkgi13liahg2ki6.apps.googleusercontent.com',
+            'cookiepolicy' : 'single_host_origin',
+            'callback' : 'loginCallback',
+            'approvalprompt':'force',
+            'scope' : 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.profile.emails.read'
+        };
+        gapi.auth.signIn(myParams);
+
+    }
+
+    function loginCallback(result)
+    {
+        if(result['status']['signed_in'])
+        {
+            var request = gapi.client.plus.people.get(
+                {
+                    'userId': 'me'
+                });
+            request.execute(function (resp)
+            {
+                var email = '';
+                if(resp['emails'])
+                {
+                    for(i = 0; i < resp['emails'].length; i++)
+                    {
+                        if(resp['emails'][i]['type'] == 'account')
+                        {
+                            email = resp['emails'][i]['value'];
+                        }
+                    }
+                }
+
+                var str = "Name:" + resp['displayName'] + "<br>";
+                str += "Image:" + resp['image']['url'] + "<br>";
+                str += "<img src='" + resp['image']['url'] + "' /><br>";
+
+                str += "URL:" + resp['url'] + "<br>";
+                str += "Email:" + email + "<br>";
+                document.getElementById("profile").innerHTML = str;
+            });
+
+        }
+        window.location.href = 'Home.html';
+
+    }
+    function onLoadCallback()
+    {
+        gapi.client.setApiKey('AIzaSyDFzgl16KVffrpauuRFgWSP8Nnf_gCPEIc');
+        gapi.client.load('plus', 'v1',function(){});
+    }
+
+</script>
+<script type="text/javascript">
+    (function() {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/client.js?onload=onLoadCallback';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+    })();
+</script>
+
