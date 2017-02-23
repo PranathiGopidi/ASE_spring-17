@@ -11,7 +11,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
 
 
-    tools:context="com.example.mahesh.mapsphoto.MainActivity"
+    tools:context="com.example.mahesh.GMaps@Photo.MainActivity"
     tools:showIn="@layout/activity_main">
 
     <Button
@@ -27,7 +27,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Take photo"
+        android:text="Click pic"
         android:id="@+id/main_btn_photo"
         android:onClick="onClickOfPhotoButton"
         android:layout_below="@+id/editText5"
@@ -54,6 +54,18 @@
         android:layout_below="@+id/textView"
         android:layout_alignParentStart="true"
         android:layout_marginTop="55dp" />
+	<EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColorHint="#000000"
+        android:inputType="textPersonName"
+        android:hint="Enter your User Name"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="55dp" />
+
 
     <EditText
         android:layout_width="wrap_content"
@@ -99,7 +111,7 @@
         android:ems="10"
         android:id="@+id/editText5"
         android:layout_alignParentStart="true"
-        android:hint="Address Retrived"
+        android:hint="Get Address"
         android:layout_below="@+id/editText4"
         android:layout_alignParentLeft="true" />
 
@@ -119,7 +131,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="upload photo"
+        android:text="upload pic"
         android:id="@+id/button"
         android:layout_marginTop="10dp"
         android:layout_below="@+id/editText5"

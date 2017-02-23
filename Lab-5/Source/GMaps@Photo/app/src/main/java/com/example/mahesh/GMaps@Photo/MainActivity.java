@@ -1,4 +1,4 @@
-package com.example.mahesh.mapsphoto;
+package com.example.mahesh.GMaps@Photo;
 
         import android.content.Intent;
         import android.graphics.Bitmap;

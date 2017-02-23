@@ -1,4 +1,4 @@
-package com.example.mahesh.mapsphoto;
+package com.example.mahesh.GMaps@Photo;
 
 /**
  * Created by Mahesh on 22-02-2017.

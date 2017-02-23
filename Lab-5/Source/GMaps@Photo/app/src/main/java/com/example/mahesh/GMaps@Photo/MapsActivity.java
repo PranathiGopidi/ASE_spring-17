@@ -1,4 +1,4 @@
-package com.example.mahesh.mapsphoto;
+package com.example.mahesh.GMaps@Photo;
 
 /**
  * Created by Mahesh on 22-02-2017.
@@ -121,6 +121,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userCurrentLocationCorodinates, 7));
         mMap.addMarker(new MarkerOptions().position(userCurrentLocationCorodinates)
                 .title("Your current address.").snippet(Address.toString())
-                .icon(BitmapDescriptorFactory.fromBitmap(com.example.mahesh.mapsphoto.MainActivity.photo)));
+                .icon(BitmapDescriptorFactory.fromBitmap(com.example.mahesh.GMaps@Photo.MainActivity.photo)));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(userCurrentLocationCorodinates,18));
     }}
