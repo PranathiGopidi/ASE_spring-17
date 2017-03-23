@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="" data-ng-app="GoogleDirection">
+<head>
+    <style>
+        body
+        {
+            width:100%;
+            margin-left:auto;
+            margin-right:auto;
+        }
+        ul
+        {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        li {
+            float: left;
+        }
+
+        a.button {
+            -webkit-appearance: button;
+            -moz-appearance: button;
+            appearance: button;
+            width:auto;
+            text-decoration: none;
+            color: initial;
+        }
+        .search
+        {
+            width:50%;
+            margin-left: 300px;
+        }
+    </style>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/knowledge/kgsearch/widget/1.0/widget.min.css">
+    <style>
+        body  {
+            background-image: url("http://www.uniwallpaper.com/static/images/i-should-buy-a-boat_wFtpt1n.jpg");}
+        .kge-search-picker {
+            width: <DROPDOWN_MENU_WIDTH>;
+        }
+    </style>
+    <script type="text/javascript" src="https://www.gstatic.com/knowledge/kgsearch/widget/1.0/widget.min.js"></script>
+</head>
+
+<body background="bgimg.jpg">
+<strong><h1 style="text-align: center">Mashup</h1></strong>
+<br/>
+
+<br/>
+<div class="search">
+
+    <b style="color: white">Knowledge Services</b>: <input type="text"  id="myInput">
+    <script type="text/javascript">
+        KGSearchWidget("AIzaSyBQMNFNnzwIYraotIXSC1w0mHNmYAIPqik",document.getElementById("myInput"),{});
+    </script>
+    <br/>
+    <br/>
+
+    <script>
+        (function() {
+            var cx = '003318654583123334531:9jyoi0hh_bg';
+            var gcse = document.createElement('script');
+            gcse.type = 'text/javascript';
+            gcse.async = true;
+            gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(gcse, s);
+        })();
+    </script>
+    <gcse:search enableAutoComplete="true"></gcse:search>
+    <br/>
+
+</div>
+</body>
+</html>
+
+
